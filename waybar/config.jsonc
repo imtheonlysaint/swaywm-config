@@ -1,0 +1,96 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 28,
+    "spacing":5,
+    // Module placement
+    "modules-left": ["sway/workspaces"],
+    "modules-center": [],
+
+
+    "modules-right": ["power-profiles-daemon", "cpu", "memory", "backlight", "pulseaudio", "battery","custom/weather","clock","custom/notifications","tray"],
+
+    // --- MODULE CONFIGURATIONS ---
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        // Using text instead of icons for a minimal look
+        "format": "{name}"
+    },
+    "custom/notifications": {
+  "format": "  {icon}",
+  "exec": "swaync-client -swb",
+  "on-click": "swaync-client -t -sw",
+  "tooltip": false
+},
+
+
+    // "power-profiles-daemon": {
+    //     "format": " {icon} ",
+    //     "tooltip-format": "Power Profile: {profile}",
+    //     "tooltip": true,
+    //     // These are text 'icons' that will show on the bar
+    //     "format-icons": {
+    //         "performance": "",
+    //         "balanced": "",
+    //         "power-saver": ""
+    //     }
+    // },
+
+
+"custom/weather": {
+  "exec": "~/.config/waybar/scripts/weather.sh",
+  "return-type": "json",
+  "interval": 600,
+},
+
+    "cpu": {
+        "format": "   {usage}%",
+        "interval": 12
+    },
+
+    "memory": {
+        "format": "  {used:0.1f}G ",
+        "interval": 10
+    },
+    
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        // Simple text format, no icons
+        "format": "    {capacity}% ",
+        "format-charging": "CHR: {capacity}%",
+        "format-plugged": "FULL: {capacity}%"
+    },
+
+    "pulseaudio": {
+        // Simple text format
+        "format": "󰕾 {volume}% ",
+        "format-muted": "MUTED",
+        "on-click": "pavucontrol",
+        // New: Scroll to change volume by 5%
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+    },
+
+    "backlight": {
+        "device": "intel_backlight", // You might need to change this!
+        "format": "󰃟  {percent}%",
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-"
+    },
+
+ "clock": {
+    "interval": 1,
+    "format": " {:%a %d %b %I:%M:%S %p}",
+    "tooltip": true,
+    "tooltip-format": "{calendar}"
+},
+
+"tray": {
+    "spacing":15
+
+}
+}

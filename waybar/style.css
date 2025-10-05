@@ -1,0 +1,91 @@
+/* Waybar Style CSS with Wallust Integration */
+@import "colors.css";
+
+/* ===== GLOBAL ===== */
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 14px;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: @background;
+  color: @foreground;
+}
+
+
+
+
+window#waybar.hidden { opacity: 0.2; }
+
+/* ===== WORKSPACES ===== */
+
+
+#workspaces button {
+  padding: 0 5px;
+  color: @foreground;
+
+}
+
+#workspaces button:hover {
+  background: @color10;
+}
+
+#workspaces button.focused {
+  color: @foreground;
+  background: @color10;
+  
+}
+
+#workspaces button.urgent {
+  color: @color1;
+}
+
+#workspaces button.visible { color: @foreground; }
+
+/* ===== MODULES COMMON ===== */
+#power-profiles-daemon,
+#cpu,
+#memory,
+#backlight,
+#pulseaudio,
+#battery,
+#clock,
+#tray,
+#idle_inhibitor,
+#network,
+
+/* ===== PER-MODULE COLORS (all @foreground) ===== */
+#power-profiles-daemon       { color: @foreground; }
+#cpu                         { color: @foreground; }
+#memory                      { color: @foreground; }
+#backlight                   { color: @foreground; }
+#pulseaudio                  { color: @foreground; }
+#pulseaudio.muted            { color: @foreground; text-decoration: line-through; }
+#battery                     { color: @foreground; }
+#battery.charging,
+#battery.plugged             { color: @foreground; }
+#battery.warning:not(.charging),
+#battery.critical:not(.charging) { color: @foreground; }
+#clock                       { color: @foreground; }
+#tray                        { background: transparent; }
+#tray > .passive             { opacity: 0.6; }
+#tray > .active              { opacity: 1; }
+#tray > .needs-attention     { color: @color9; }
+#idle_inhibitor.activated    { color: @foreground; }
+#network                     { color: @foreground; }
+#network.disconnected        { color: @foreground; }
+#temperature                 { color: @foreground; }
+#temperature.critical        { color: @foreground; }
+
+/* ===== TOOLTIP ===== */
+tooltip {
+  background: @background;
+  border: 1px solid @color4;
+
+  color: @foreground;
+
+}
+tooltip label { color: @foreground; }

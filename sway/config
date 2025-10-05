@@ -1,0 +1,31 @@
+# Main Sway Configuration
+# Modular setup - edit individual files in config.d/
+
+### Variables
+include $HOME/.config/sway/config.d/00-variables.conf
+
+### Output (Monitors)
+include $HOME/.config/sway/config.d/01-outputs.conf
+
+### Input (Keyboard, Mouse, Touchpad)
+include $HOME/.config/sway/config.d/02-input.conf
+
+### Appearance
+include $HOME/.config/sway/config.d/03-appearance.conf
+
+### Keybindings
+include $HOME/.config/sway/config.d/10-keybinds-basic.conf
+include $HOME/.config/sway/config.d/11-keybinds-windows.conf
+include $HOME/.config/sway/config.d/12-keybinds-workspaces.conf
+include $HOME/.config/sway/config.d/13-keybinds-media.conf
+
+### Modes
+include $HOME/.config/sway/config.d/20-modes.conf
+
+### Autostart
+include $HOME/.config/sway/config.d/30-autostart.conf
+
+### System config
+include /etc/sway/config-vars.d/*
+include /etc/sway/config.d/*
+

@@ -1,0 +1,24 @@
+/* * file: ~/.config/swaync/style.css
+ */
+
+/* Apply JetBrainsMono Nerd Font to all text elements */
+* {
+    font-family: "JetBrainsMono Nerd Font", FontAwesome, sans-serif;
+    font-size: 14px;
+}
+
+/* Remove rounded corners from all relevant elements to make them square */
+.control-center,
+.notification-row,
+.notification,
+.notification-button,
+.notification-background,
+.notification-body-image,
+.widget-dnd,
+.widget-inhibitors,
+.widget-title,
+button,
+slider,
+progressbar {
+    border-radius: 0px;
+}

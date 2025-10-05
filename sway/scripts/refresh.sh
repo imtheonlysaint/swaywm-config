@@ -1,0 +1,1 @@
+pkill waybar; exec waybar

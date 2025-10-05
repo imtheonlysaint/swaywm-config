@@ -1,0 +1,17 @@
+# Wallust Configuration
+colorspace = "lab"
+backend = "resized"
+threshold = 5
+palette_size = 16
+color_sort_order = "lightness"
+check_contrast = true
+resize_size = 512
+filter_duplicates = true
+
+[templates]
+
+waybar = { template = 'waybar-colors.template', target = '~/.config/waybar/colors.css' }
+foot = { template = 'foot-colors.template', target = '~/.config/foot/colors.ini' }
+sway = { template = 'sway-colors.template', target = '~/.config/sway/config.d/colors' }
+wofi = { template = 'wofi-colors.template', target = '~/.config/wofi/colors.css' }
+

@@ -11,7 +11,7 @@
 # temp=$(echo "$weather_json" | jq -r '.current_weather.temperature')
 # condition_code=$(echo "$weather_json" | jq -r '.current_weather.weathercode')
 
-# # Map weather code to emoji
+
 # emoji="?"
 # case $condition_code in
 #   0) emoji="☀️" ;;
@@ -30,14 +30,14 @@
 
 #!/usr/bin/env bash
 
-# Configuration
+
 readonly CITY="Bandung"
 readonly LAT="-6.914744"
 readonly LON="107.609810"
 readonly CACHE_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/waybar-weather.json"
 readonly CACHE_DURATION=600  # 10 minutes in seconds
 
-# Weather code to emoji mapping
+
 get_weather_emoji() {
     case $1 in
         0) echo " " ;;           # Clear sky
@@ -53,7 +53,6 @@ get_weather_emoji() {
     esac
 }
 
-# Check if cache is valid
 is_cache_valid() {
     [[ -f "$CACHE_FILE" ]] || return 1
     
@@ -64,50 +63,36 @@ is_cache_valid() {
     (( current_time - cache_time < CACHE_DURATION ))
 }
 
-# Fetch weather data
 fetch_weather() {
     curl -sf --max-time 5 \
         "https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current_weather=true" \
         2>/dev/null
 }
 
-# Main execution
 main() {
-    # Use cached data if valid
     if is_cache_valid; then
         cat "$CACHE_FILE"
         exit 0
     fi
-    
-    # Fetch fresh data
     local weather_json
     weather_json=$(fetch_weather)
     
     if [[ -z "$weather_json" ]]; then
-        # Return error state for Waybar
         echo '{"text": "⚠️", "tooltip": "Weather unavailable"}'
         exit 0
     fi
     
-    # Parse response
     local temp condition_code
     temp=$(echo "$weather_json" | jq -r '.current_weather.temperature // "N/A"')
     condition_code=$(echo "$weather_json" | jq -r '.current_weather.weathercode // 999')
-    
-    # Validate parsed data
     if [[ "$temp" == "N/A" ]] || [[ "$condition_code" == "999" ]]; then
         echo '{"text": "⚠️", "tooltip": "Invalid weather data"}'
         exit 0
     fi
-    
-    # Generate output
+
     local emoji
     emoji=$(get_weather_emoji "$condition_code")
-    
-    # Build JSON manually to avoid jq issues
     printf '{"text": "%s %s°C", "tooltip": "%s"}\n' "$emoji" "$temp" "$CITY"
-    
-    # Cache the result
     mkdir -p "$(dirname "$CACHE_FILE")" 2>/dev/null
     printf '{"text": "%s %s°C", "tooltip": "%s"}\n' "$emoji" "$temp" "$CITY" > "$CACHE_FILE"
 }

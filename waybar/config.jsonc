@@ -3,18 +3,12 @@
     "position": "top",
     "height": 25,
     "spacing":5,
-    // Module placement
     "modules-left": ["sway/workspaces"],
     "modules-center": [],
-
-
     "modules-right": ["power-profiles-daemon", "cpu", "memory", "backlight", "pulseaudio", "battery","custom/weather","clock","custom/notifications","tray"],
-
-    // --- MODULE CONFIGURATIONS ---
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
-        // Using text instead of icons for a minimal look
         "format": "{name}"
     },
     "custom/notifications": {
@@ -59,24 +53,22 @@
             "warning": 30,
             "critical": 15
         },
-        // Simple text format, no icons
+  
         "format": "    {capacity}% ",
         "format-charging": "CHR: {capacity}%",
         "format-plugged": "FULL: {capacity}%"
     },
 
     "pulseaudio": {
-        // Simple text format
         "format": "󰕾 {volume}% ",
         "format-muted": "MUTED",
         "on-click": "pavucontrol",
-        // New: Scroll to change volume by 5%
         "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
         "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
     },
 
     "backlight": {
-        "device": "intel_backlight", // You might need to change this!
+        "device": "intel_backlight",
         "format": "󰃟  {percent}%",
         "on-scroll-up": "brightnessctl set 5%+",
         "on-scroll-down": "brightnessctl set 5%-"

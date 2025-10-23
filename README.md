@@ -63,8 +63,7 @@ Here are the main components required for this configuration to work properly.
 
 * `$mod + Return`: Opens a terminal
 * `$mod + d`: Opens **fuzzel** (app launcher)
-* `$mod + Shift + q`: Closes a window (kill)
-* `$mod + n`: (Example) Opens the **swaync** notification center
+
 
 
 <img width="1917" height="1079" alt="screenshot-20251005-223818" src="https://github.com/user-attachments/assets/d95be6d0-76ac-4ddd-aca4-a35b7358b684" />

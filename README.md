@@ -59,7 +59,7 @@ Here are the main components required for this configuration to work properly.
 
 ## ⌨️ Main Keybindings (Example)
 
-You should fill this section with the main keybindings from your `sway/config` file.
+
 
 * `$mod + Return`: Opens a terminal
 * `$mod + d`: Opens **fuzzel** (app launcher)

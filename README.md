@@ -5,8 +5,6 @@ This is my personal repository for my configuration files (dotfiles) for [Sway](
 This configuration is designed to be lightweight, functional, and aesthetic, with tight integration between key components for a cohesive desktop experience.
 
 
-*(It's highly recommended to add a screenshot of your desktop here!)*
-
 ---
 
 ## Key Features

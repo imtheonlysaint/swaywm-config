@@ -9,7 +9,7 @@ This configuration is designed to be lightweight, functional, and aesthetic, wit
 
 ## Key Features
 
-* **Dynamic Theming**: Uses **[wallust](https://github.com/wallust/wallust)** to automatically generate a color palette from your wallpaper. This theme is then applied to Waybar and other components.
+* **Dynamic Theming**: Uses **[wallust](https://codeberg.org/explosion-mental/wallust)** to automatically generate a color palette from your wallpaper. This theme is then applied to Waybar and other components.
 * **Modern Status Bar**: A custom configuration for **[Waybar](https://github.com/Alexays/Waybar)** that displays system information, workspaces, time, and more in a clean style.
 * **Fast App Launcher**: Uses **[fuzzel](https://codeberg.org/dnkl/fuzzel)** as the primary application launcher, a modern dmenu/rofi replacement for Wayland.
 * **Notification Center**: Uses **[swaync](https://github.com/ErikReider/swaync)** for advanced notification management, complete with a "Do Not Disturb" mode and history panel.
@@ -33,13 +33,7 @@ Here are the main components required for this configuration to work properly.
 
 ## 🚀 Installation
 
-1.  **Clone this repository:**
-    ```bash
-    # It's best to clone into your .config directory
-    git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME) ~/.config/sway-dotfiles
-    ```
-
-2.  **Install all dependencies** listed above using your package manager.
+1.  **Install all dependencies** listed above using your package manager.
 
     *Example for Arch Linux:*
     ```bash
